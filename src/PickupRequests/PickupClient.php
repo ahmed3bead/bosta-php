@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace Bosta\PickupRequests;
 
 use Bosta\Bosta;
@@ -59,10 +60,10 @@ class PickupClient
             }
 
             $response = $this->apiClient->send('POST', $path, $body, '');
-            
+
             if ($response->success === true) {
                 return $response->data;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -92,7 +93,7 @@ class PickupClient
         int $noOfPackages
     ): string {
         try {
-            $path = 'pickups/'.$pickupRequestId;
+            $path = 'pickups/' . $pickupRequestId;
             $body = new \stdClass;
             $body->scheduledDate = $scheduledDate;
             $body->scheduledTimeSlot = $scheduledTimeSlot;
@@ -116,7 +117,7 @@ class PickupClient
 
             if ($response->success === true) {
                 return $response->data ? $response->data : $response->message;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -138,7 +139,7 @@ class PickupClient
 
             if ($response->success === true) {
                 return $response->data ? $response->data : $response->message;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -147,11 +148,11 @@ class PickupClient
     }
 
     /**
-    * List Pickup Request
-    *
-    * @param int $pageId
-    * @return \stdClass
-    */
+     * List Pickup Request
+     *
+     * @param int $pageId
+     * @return \stdClass
+     */
     public function list(int $pageId = 0): \stdClass
     {
         try {
@@ -160,7 +161,7 @@ class PickupClient
 
             if ($response->success === true) {
                 return $response->data;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -169,11 +170,11 @@ class PickupClient
     }
 
     /**
-    * Get Pickup Request
-    *
-    * @param string $pickupRequestId
-    * @return \stdClass
-    */
+     * Get Pickup Request
+     *
+     * @param string $pickupRequestId
+     * @return \stdClass
+     */
     public function get(string $pickupRequestId): \stdClass
     {
         try {
@@ -182,7 +183,7 @@ class PickupClient
 
             if ($response->success === true) {
                 return $response->data;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {

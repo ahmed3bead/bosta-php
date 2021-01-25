@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace Bosta\Deliveries;
 
 use Bosta\Bosta;
@@ -37,7 +38,7 @@ class DeliveryClient
         Receiver $receiver,
         string $notes,
         int $cod,
-        int $businessReference = 0 ,
+        int $businessReference = 0,
         $webhookUrl = 0
     ): \stdClass {
         try {
@@ -49,23 +50,23 @@ class DeliveryClient
 
             $body->dropOffAddress = $dropOffAddress->dropOffAddress;
             $body->receiver = $receiver->receiver;
-            
-            if($webhookUrl){
+
+            if ($webhookUrl) {
                 $body->webhookUrl = $webhookUrl;
             }
-             if($businessReference){
+            if ($businessReference) {
                 $body->businessReference = $businessReference;
             }
- 
+
             if ($cod && $cod != 0) {
                 $body->cod = $cod;
             }
-            
+
             $response = $this->apiClient->send('POST', $path, $body, '');
 
             if ($response->success === true) {
                 return $response->data;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -107,7 +108,7 @@ class DeliveryClient
 
             if ($response->success === true) {
                 return $response->message;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -129,7 +130,7 @@ class DeliveryClient
 
             if ($response->success === true) {
                 return $response->message;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -152,7 +153,7 @@ class DeliveryClient
 
             if ($response->success === true) {
                 return $response->data;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {
@@ -174,7 +175,7 @@ class DeliveryClient
 
             if ($response->success === true) {
                 return $response->data;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {

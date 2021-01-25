@@ -1,6 +1,7 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
+
 namespace Bosta\Zones;
 
 use Bosta\Bosta;
@@ -21,17 +22,17 @@ class ZoneClient
      * List Zones of the City
      *
      * @param string $cityId
-     * @return \stdClass
+     * @return \stdClass 
      */
     public function list(string $cityId): \stdClass
     {
         try {
-            $path = 'cities/'.$cityId.'/zones';
+            $path = 'cities/' . $cityId . '/zones';
             $response = $this->apiClient->send('GET', $path, new \stdClass, '');
 
             if ($response->success === true) {
                 return $response->data;
-             } elseif (!isset($response->success) || $response->success === false) {
+            } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {

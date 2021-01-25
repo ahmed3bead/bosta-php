@@ -1,5 +1,6 @@
 <?php
-declare (strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Bosta;
 
@@ -34,7 +35,7 @@ class Bosta
      * @param string $method
      * @param string $path
      * @param object $body
-     * @param string $headers
+     * @param string $headers 
      * @return void
      */
     public function send(string $method, string $path, object $body, string $headers)
@@ -53,9 +54,9 @@ class Bosta
             $curl,
             CURLOPT_HTTPHEADER,
             array(
-            "Content-Type: application/json",
-            'authorization:' . $this->API_KEY,
-            'X-Requested-By: php-sdk',
+                "Content-Type: application/json",
+                'authorization:' . $this->API_KEY,
+                'X-Requested-By: php-sdk',
             )
         );
         $response = curl_exec($curl);

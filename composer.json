@@ -1,19 +1,25 @@
 {
-    "name": "bosta/bosta-sdk",
+    "name": "bosta/bosta-php-sdk",
     "description": "A PHP client SDK for Bosta APIs integration.",
     "type": "library",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "bosta",
-        "bosta-sdk"
+        "bosta-php-sdk"
     ],
-    "homepage": "https://github.com/bostaapp/bosta-php",
+    "homepage": "https://github.com/ahmed3bead/bosta-php",
     "license": "MIT",
     "authors": [
         {
             "name": "aliaasayed",
             "email": "aliaasayed45@gmail.com",
             "homepage": "https://github.com/aliaasayed",
+            "role": "Developer"
+        }
+        {
+            "name": "ahmed3bead",
+            "email": "ahmed3bead@hotmail.com",
+            "homepage": "https://github.com/ahmed3bead",
             "role": "Developer"
         }
     ],
