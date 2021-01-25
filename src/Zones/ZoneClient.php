@@ -31,7 +31,7 @@ class ZoneClient
 
             if ($response->success === true) {
                 return $response->data;
-            } elseif ($response->success === false) {
+             } elseif (!isset($response->success) || $response->success === false) {
                 throw new \Exception($response->message);
             }
         } catch (Exception $e) {

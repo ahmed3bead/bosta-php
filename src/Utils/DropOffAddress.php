@@ -13,7 +13,7 @@ class DropOffAddress
      * @param string $city
      * @param string $zone
      */
-    public function __construct(int $buildingNumber, string $firstLine, string  $city, string $zone)
+    public function __construct(string $buildingNumber, string $firstLine, string  $city, string $zone)
     {
         $this->dropOffAddress = new \stdClass();
         $this->dropOffAddress->buildingNumber = $buildingNumber;
