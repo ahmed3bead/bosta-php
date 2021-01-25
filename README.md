@@ -276,7 +276,7 @@ This repository contains the open source PHP SDK for integrating Bosta's APIs in
     ```
     
 ## TODO
- -- Adding fun Bosta api feachers.
+ -- Adding Full Bosta api feachers.
  
 ## please contact me if you need anything AE.
     
