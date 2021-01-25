@@ -274,14 +274,10 @@ This repository contains the open source PHP SDK for integrating Bosta's APIs in
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
     ```
+    
+## TODO
+ -- Adding fun Bosta api feachers.
+ 
+## please contact me if you need anything AE.
+    
 
-## Contribution
-
-We are open to, and grateful for, any contributions made by the community.
-By contributing to Bosta, you agree to abide by the code of conduct.
-- [Contributing Guide](CONTRIBUTING.md) 
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-
-## License
-
-The MIT License (MIT) [License](LICENSE).
