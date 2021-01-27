@@ -5,7 +5,7 @@ namespace Bosta\Cities;
 
 use Bosta\Bosta;
 
-class CityClient 
+class CityClient
 {
     /**
      * Create CityClient Instance

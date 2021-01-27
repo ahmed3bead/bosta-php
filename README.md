@@ -11,10 +11,17 @@ This repository contains the open source PHP SDK for integrating Bosta's APIs in
 - [License](#license)
 
 ## APIs Documentation
- 
+
 - [Staging](https://stg-app.bosta.co/docs) APIs swagger documentation.
 - [Production](https://app.bosta.co/docs) APIs swagger documentation.
 
+## Installation
+
+You can install the package via [Composer](https://getcomposer.org/). Run the following command:
+
+``` bash
+$ composer require bosta/bosta-sdk
+```
 
 ## Usages
 

@@ -7,6 +7,7 @@ namespace Bosta\Deliveries;
 use Bosta\Bosta;
 use Bosta\Utils\Receiver;
 use Bosta\Utils\DropOffAddress;
+use Bosta\Utils\Specs;
 
 class DeliveryClient
 {
@@ -29,6 +30,7 @@ class DeliveryClient
      * @param string $notes
      * @param int $cod
      * @param int $businessReference
+     * @param \Bosta\Utils\Specs $Specs
      * @param int $webhookUrl
      * @return \stdClass
      */
@@ -36,9 +38,10 @@ class DeliveryClient
         int $type,
         DropOffAddress $dropOffAddress,
         Receiver $receiver,
-        string $notes,
+        $notes,
         int $cod,
-        int $businessReference = 0,
+        $businessReference = 0,
+        Specs $Specs,
         $webhookUrl = 0
     ): \stdClass {
         try {
@@ -56,6 +59,14 @@ class DeliveryClient
             }
             if ($businessReference) {
                 $body->businessReference = $businessReference;
+            }
+
+            if ($Specs) {
+
+                if ($Specs->specs->packageDetails) {
+                    $body->specs  = $Specs->specs;
+                    // debug($Specs->specs->packageDetails);
+                }
             }
 
             if ($cod && $cod != 0) {
@@ -85,12 +96,12 @@ class DeliveryClient
      * @return string
      */
     public function update(
-        string $deliveryId,
+        $deliveryId,
         DropOffAddress $dropOffAddress,
         Receiver $receiver,
-        string $notes,
+        $notes,
         int $cod
-    ): string {
+    ) {
         try {
             $path = 'deliveries/' . $deliveryId;
 

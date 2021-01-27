@@ -35,7 +35,7 @@ class Bosta
      * @param string $method
      * @param string $path
      * @param object $body
-     * @param string $headers 
+     * @param string $headers
      * @return void
      */
     public function send(string $method, string $path, object $body, string $headers)
@@ -45,9 +45,65 @@ class Bosta
         if ($method == 'DELETE') {
             curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
         }
+
+        // die;
+        $testBody = '{
+            "type": 10,
+            "specs": {
+             
+              "packageDetails": {
+                "itemsCount": 5
+              }
+            },
+            "returnSpecs": {
+              "size": "SMALL",
+              "packageDetails": {
+                "itemsCount": 5,
+                "document": "Document",
+                "description": "Desc."
+              }
+            },
+            "notes": "Welcome Note",
+            "cod": 50,
+            "dropOffAddress": {
+              "district": "Maadi",
+              "firstLine": "Maadi",
+              "secondLine": "Nasr  City",
+              "buildingNumber": "123",
+              "floor": "4",
+              "apartment": "2",
+              "isWorkAddress": true,
+              "zone": "Maadi & Muqattam",
+              "cityCode": "EG-01"
+            },
+            "returnAddress": {
+              "district": "Maadi",
+              "firstLine": "Maadi",
+              "secondLine": "Nasr  City",
+              "buildingNumber": "123",
+              "floor": "4",
+              "apartment": "2",
+              "isWorkAddress": true,
+              "zone": "Maadi & Muqattam",
+              "cityCode": "EG-01"
+            },
+            "allowToOpenPackage": true,
+            "businessReference": "43535252",
+            "receiver": {
+              "firstName": "Sasuke",
+              "lastName": "Uchiha",
+              "phone": "01065685435",
+              "email": "ahmed@ahmed.com"
+            }
+          }';
+
+
+
+
         if ($method === 'POST' || $method === 'PUT') {
             curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
             curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($body));
+            // curl_setopt($curl, CURLOPT_POSTFIELDS, $testBody);
         }
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt(
@@ -61,6 +117,13 @@ class Bosta
         );
         $response = curl_exec($curl);
         curl_close($curl);
+
+        // echo "<pre>";
+        // print_r(json_encode($body));
+        // print_r($testBody);
+        // print_r(json_decode($response));
+
+        // die;
         return json_decode($response);
     }
 }
