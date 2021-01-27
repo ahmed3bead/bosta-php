@@ -233,7 +233,7 @@ $ composer require bosta/bosta-sdk
     *
     * @param int $itemsCount = 5
     */
-    $packageDetails = new PackageDetails(PackageDetails(5));
+    $packageDetails = new PackageDetails(5);
 
 
 
