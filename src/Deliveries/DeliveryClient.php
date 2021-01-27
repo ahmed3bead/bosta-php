@@ -193,4 +193,28 @@ class DeliveryClient
             return $e;
         }
     }
+
+
+    /**
+     * get Invoice
+     *
+     * @param string $deliveryId
+     * @return \stdClass
+     */
+    public function getInvoice(string $deliveryId = 'KjEcA2F3wJWo2t8vd')
+    {
+        try {
+            // $deliveryId = 'KjEcA2F3wJWo2t8vd';
+            $path = '/deliveries/awb/' . $deliveryId;
+            $response = $this->apiClient->send('GET', $path, new \stdClass, '');
+
+            if ($response->success === true) {
+                return $response->data->data;
+            } elseif (!isset($response->success) || $response->success === false) {
+                throw new \Exception($response->message);
+            }
+        } catch (Exception $e) {
+            return $e;
+        }
+    }
 }

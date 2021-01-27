@@ -156,12 +156,8 @@ $ composer require bosta/bosta-sdk
 
 - Delivery Client
     ``` php
-   use Bosta\Bosta;
-   use Bosta\Utils\ContactPerson;
-   use Bosta\Utils\Receiver;
-   use Bosta\Utils\PackageDetails;
-   use Bosta\Utils\Specs;
-   use Bosta\Utils\DropOffAddress;
+    use Bosta\Utils\Receiver;
+    use Bosta\Utils\DropOffAddress;
 
     /**
     * List Deliveries
@@ -228,22 +224,6 @@ $ composer require bosta/bosta-sdk
     */
     $dropOffAddress = new DropOffAddress(1, "firstLine", "EG-05", 'Dakahlia');
 
-  /**
-    * Create PackageDetails Instance
-    *
-    * @param int $itemsCount = 5
-    */
-    $packageDetails = new PackageDetails(5);
-
-
-
-    /**
-    * Create Specs Instance
-    *
-    * @param PackageDetails $packageDetails
-    */
-    $receiver = new Specs($packageDetails);
-
     /**
     * Create Delivery
     *
@@ -301,10 +281,14 @@ $ composer require bosta/bosta-sdk
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
     ```
-    
-## TODO
- -- Adding Full Bosta api feachers.
- 
-## please contact me if you need anything AE.
-    
 
+## Contribution
+
+We are open to, and grateful for, any contributions made by the community.
+By contributing to Bosta, you agree to abide by the code of conduct.
+- [Contributing Guide](CONTRIBUTING.md) 
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+
+## License
+
+The MIT License (MIT) [License](LICENSE).
